@@ -1,0 +1,27 @@
+<!--강의 페이지에 직접적으로 넣는 코드-->
+<!--JS 돌리기 위한 Import 과정-->
+<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--비메오 임베드 링크입니다. 이 부분은 유동적으로 변경됩니다.-->
+<iframe id="video1" src="https://player.vimeo.com/video/544253295?api=1&player_id=video1" width="900" height="354" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+<div>
+  <p>Status: <span class="status">&hellip;</span></p>
+</div>
+
+<!--Add any text you want in this section-->
+
+
+<!--Disabling-->
+<script>
+    $(function()
+      {
+      $(".lp-button.button.button-complete-item.button-complete-lesson.lp-btn-complete-item").attr("disabled", "disabled");
+      setTimeout(function()
+                 {
+        $(".lp-button.button.button-complete-item.button-complete-lesson.lp-btn-complete-item").removeAttr("disabled");
+      },1406500)
+    })
+</script>
