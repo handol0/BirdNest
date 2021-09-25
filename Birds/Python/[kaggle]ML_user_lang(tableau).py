@@ -1,3 +1,12 @@
+## Load and Import Datas & Library ##
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = pd.read_csv(".../jupytersnake/data/Kaggle_data_2020ML/kaggle_survey_2020_responses.csv", low_memory=False)
+
+### a little extra #
 basic_info = ['Q1', 'Q3', 'Q4', 'Q5', 'Q6', ]
 tableau_uses = ['Q31_A_Part_5']
 tableau_hopes = ['Q31_B_Part_5']
@@ -17,7 +26,8 @@ prs_lang = ['Q7_Part_1',
 
 data_prs_lang = data[prs_lang]
 merged_tableau = data[basic_info + tableau_uses + tableau_hopes]
-using_tableau = data[basic_info+ tableau_uses] 
+using_tableau = data[basic_info+ tableau_uses]
+hope_tableau = data[basic_info + tableau_hopes]
 
 ## Q31_A_Part_5와 Q31_B_Part_5가 null이 아닌 row만 ##
 
@@ -26,6 +36,7 @@ using_tableau = data[basic_info+ tableau_uses]
 
 
 
+########### 태블로를 사용하는 사람들 ###############
 ## Q31_A_Part_5가 null이 아닌 row만 ##
 using_tableau[using_tableau[tableau_uses].isnull().any(axis=1)]
 
@@ -38,7 +49,25 @@ tableau_usingf
 
 # 프로그래밍 랭귀지 테이블과 tableau user 테이블 합치기 #
 tableau_using2 = pd.merge(tableau_usingf, data_prs_lang, left_index=True, right_index=True, how="inner")
+tableau_using2.info()
+# 20036명 중 1835명 #
 
+
+########### 태블로를 쓰고 싶어하는 사람들 ###############
+## Q31_B_Part_5가 null이 아닌 row만 ##
+hope_tableau[hope_tableau[tableau_hopes].isnull().any(axis=1)]
+
+
+
+# 결측치 제거!!! ####
+tableau_hopef = hope_tableau.dropna()
+tableau_hopef
+
+
+# 프로그래밍 랭귀지 테이블과 tableau user 테이블 합치기 #
+tableau_hope2 = pd.merge(tableau_hopef, data_prs_lang, left_index=True, right_index=True, how="inner")
+tableau_hope2.info()
+# 20036명 중 3743명 #
 
 
 prs_lang_checklist = ["Python", "R", "SQL", "C", "C++", "Java", "Javascript", "Julia", "Swift", "Bash", "MATLAB"]
