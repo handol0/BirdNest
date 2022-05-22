@@ -148,7 +148,3 @@ plt.show()
 
 #for i in prs_lang_checklist:
 #    print("'" + i + "' : " + i.lower() + '_num,')
-
-
-
-#Testing the push
