@@ -19,4 +19,13 @@ dataGI = pdr.get_data_yahoo(Ticker2, start="2012-01-01", end="2021-12-31", inter
 dataGI = dataGI['Close']
 
 dataGI.to_excel(writer, sheet_name='Sheet2', header=True)
+<<<<<<< HEAD
 writer.save()
+=======
+writer.save()
+
+
+
+
+# Checking Push Request
+>>>>>>> 9e34a6ba6a3d9caefaea4265e339b8ceacc4514e
