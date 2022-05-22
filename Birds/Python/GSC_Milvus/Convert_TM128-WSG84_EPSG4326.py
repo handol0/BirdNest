@@ -3,11 +3,13 @@
 
 from pyproj import Proj, transform
  
- 
+##TM128 변환기 설정 
 TM128 = {'proj':'tmerc', 'lat_0':'38N', 'lon_0':'128E', 'ellps':'bessel', 'x_0':'400000', 'y_0':'600000', 'k':'0.9999', 'towgs84':'-146.43,507.89,681.46'}
 
 
 wgs84=Proj(init='epsg:4326')
  
+
+ #963775 와 1941125에 들어갈 알맞은 값 가져오기
 transform(Proj(**TM128), wgs84, 963775,1941125)
 
